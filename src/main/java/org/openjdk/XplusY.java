@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 @Warmup(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
-@Fork(1)
+@Fork(value = 1, jvmArgsAppend = "-XX:CompileCommand=blackhole,org/openjdk/jmh/infra/Blackhole.consume")
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @State(Scope.Benchmark)
